@@ -1,0 +1,8 @@
+[theme]
+font = "https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+primaryColor = "#15877B"
+backgroundColor = "#ffffff"
+textColor = "#31333F"
+
+[theme.sidebar]
+backgroundColor = "#2D323E" 
