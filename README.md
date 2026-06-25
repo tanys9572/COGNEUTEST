@@ -38,11 +38,10 @@ If you need the dataset to run the script, please request one from https://nacc.
 *Make sure virtual environment, venv is created
 
 *Make sure you have:
-a installed needed libraries to venv
-b .streamlit folder
-c logo dark.png, 
-d .pkl files (imputer_value.pkl, minmax_scaler.pkl, 
-onehot_encoder.pkl, selected_features.pkl & best_rf_model.pkl)
+a) installed needed libraries to venv
+b) .streamlit folder
+c) logo dark.png, 
+d) saved .pkl files using joblib from Predictive Model Development.ipynb (imputer_value.pkl, minmax_scaler.pkl, onehot_encoder.pkl, selected_features.pkl & best_rf_model.pkl)
 
 2. Use command to run the system: 
 streamlit run system.py 
