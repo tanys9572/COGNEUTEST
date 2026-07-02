@@ -542,14 +542,14 @@ if st.session_state.current_page == "Risk Assessment":
         
         cog_col1, cog_col2, cog_col3 = st.columns(3)
         with cog_col1:
-            naccmoca = st.number_input("MoCA Total Score :red[*]", min_value=0, max_value=30, placeholder="Enter score 0-30 (Cannot be empty)", help="MoCA Total Score-corrected for education. Range: 0 to 30")
-            cdrsum = st.number_input("CDR Sum of Boxes", min_value=0.0, max_value=18.0, value=None, placeholder="e.g. 0.5", step=0.5, help="Standard CDR sum of boxes. Range: 0.0 to 18.0")
+            naccmoca = st.number_input("MoCA Total Score :red[*]", min_value=0, max_value=30, placeholder="Enter score 0-30 (Cannot be empty)", help="Montreal Cognitive Assessment test used to spot early signs of cognitive decline. It checks things like attention, memory, and language. Range: 0 to 30")
+            cdrsum = st.number_input("CDR Sum of Boxes", min_value=0.0, max_value=18.0, value=None, placeholder="e.g. 0.5", step=0.5, help="Clinical Dementia Rating to track the severity of dementia. Range: 0.0 to 18.0")
         with cog_col2: 
-            minttots = st.number_input("MINT Total Score", min_value=0, max_value=32,value=None, placeholder="e.g. 28", help="Multilingual Naming Test Total score. Range: 0 to 32")
-            naccgds = st.number_input("Geriatric Depression Scale (GDS)", min_value=0, max_value=15,value=None, placeholder="e.g. 3", help="Total GDS Score. Range: 0 to 15")
+            minttots = st.number_input("MINT Total Score", min_value=0, max_value=32,value=None, placeholder="e.g. 28", help="Multilingual Naming Test that measures language ability. Range: 0 to 32")
+            naccgds = st.number_input("Geriatric Depression Scale (GDS)", min_value=0, max_value=15,value=None, placeholder="e.g. 3", help="Geriatric Depression Scale used to screen for depression in older adults. Range: 0 to 15")
         with cog_col3:
-            traila = st.number_input("Trail Making Test A (Sec)", min_value=0, max_value=150,value=None, placeholder="e.g. 45", help="Total number of seconds to complete. Range: 0 to 150")
-            trailb = st.number_input("Trail Making Test B: (Sec)", min_value=0, max_value=300,value=None, placeholder="e.g. 120", help="Total number of seconds to complete. Range: 0 to 300")
+            traila = st.number_input("Trail Making Test A (Sec)", min_value=0, max_value=150,value=None, placeholder="e.g. 45", help="Total number of seconds to complete Trail Making Test Part A that measures visual scanning and basic motor speed. Range: 0 to 150")
+            trailb = st.number_input("Trail Making Test B: (Sec)", min_value=0, max_value=300,value=None, placeholder="e.g. 120", help="Total number of seconds to complete Trail Making Test Part B that measures task-switching flexibility. Range: 0 to 300")
 
         st.markdown("<br>", unsafe_allow_html=True)
 
@@ -1754,7 +1754,8 @@ elif st.session_state.current_page == "About":
         <p><strong>COGNEUTEST</strong> is an Clinical Decision Support System designed to assist healthcare professionals in the early screening and risk stratification of cognitive impairments, 
             specifically <strong>Mild Cognitive Impairment (MCI)</strong> and <strong>Dementia Risk (Alzheimer's Disease)</strong>.</p>
         <p>By using machine learning classification model, <strong>Random Forest</strong> trained on comprehensive clinical features from the <strong>National Alzheimer's Coordinating Center (NACC)</strong> dataset, 
-            the system processes demographic data, cognitive test scores (like MoCA and Functional Activities Questionnaire parameters) and medical condition to output rapid, objective diagnostic probabilities.</p>
+            the system processes demographic data, cognitive test scores (like MoCA and Functional Activities Questionnaire parameters) and medical condition to output rapid, objective diagnostic probabilities.
+            This model achieves an <strong>accuracy of 86.05%</strong>, a class-discrimination <strong>AUC of 0.9534</strong> and a good <strong>specificity of 92.86%</strong> to ensure reliable clinical predictions.</p>
         <p>To ensure algorithmic transparency and clinical accountability, the platform integrates <strong>SHAP (SHapley Additive exPlanations)</strong>, a state-of-the-art <strong>Explainable AI (XAI)</strong> technique. 
             By calculating individual Shapley values for each clinical feature, the system breaks down the underlying logic behind every prediction to show how much a patient's cognitive scores, age or other factors contributed to their specific result.</p>
         <p><em>Note: This application serves as a secondary decision-support tool for academic validation and should be used in conjunction with formal clinical protocols.</em></p>
@@ -1826,7 +1827,7 @@ elif st.session_state.current_page == "About":
             </div>
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #4A5568;">
                 <i class="bi bi-telephone-fill" style="color: #15877B; font-size: 16px;"></i>
-                <span>+60 6-252 3500</span>
+                <span>+60 12-927 5972</span>
             </div>
             <div style="display: flex; align-items: center; gap: 10px; color: #4A5568; margin-top: 20px; padding-top: 15px; border-top: 1px solid #EEF2F6;">
                 <i class="bi bi-mortarboard-fill" style="color: #15877B; font-size: 20px;"></i>
