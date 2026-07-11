@@ -1824,11 +1824,7 @@ elif st.session_state.current_page == "About":
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #4A5568;">
                 <i class="bi bi-envelope-fill" style="color: #15877B; font-size: 16px;"></i>
                 <span><a href="mailto:tan.yan.san@student.mmu.edu.my" style="color: #15877B; text-decoration: none;">tan.yan.san@student.mmu.edu.my</a></span>
-            </div>
-            <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #4A5568;">
-                <i class="bi bi-telephone-fill" style="color: #15877B; font-size: 16px;"></i>
-                <span>+60 12-927 5972</span>
-            </div>
+            </div>
             <div style="display: flex; align-items: center; gap: 10px; color: #4A5568; margin-top: 20px; padding-top: 15px; border-top: 1px solid #EEF2F6;">
                 <i class="bi bi-mortarboard-fill" style="color: #15877B; font-size: 20px;"></i>
                 <span style="font-size: 13px; font-weight: 500;">Final Year Project Predictive Models for Cognitive Decline Assessment Demo — 2026</span>
@@ -1842,7 +1838,7 @@ elif st.session_state.current_page == "About":
         <div class="dash-card" style="overflow: hidden; height: 100%;">
             <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.7436995642674!2d102.27611360000002!3d2.2494934999999945!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31d1e56b9710cf4b%3A0x66b6b12b75469278!2sMultimedia%20University!5e0!3m2!1sen!2smy!4v1779813869272!5m2!1sen!2smy" 
                 width="100%" 
-                height="300px" 
+                height="255px" 
                 style="border:0;" 
                 allowfullscreen="" 
                 loading="lazy" 
