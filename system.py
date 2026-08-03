@@ -1,3 +1,4 @@
+import os
 import sqlite3
 import joblib
 import streamlit as st
@@ -13,6 +14,7 @@ from io import BytesIO #for pdf
 from xhtml2pdf import pisa #for pdf
 import base64 #for pdf
 import textwrap
+import gdown
 
 st.set_page_config(page_title="COGNEUTEST", layout="wide", initial_sidebar_state="expanded")
 
@@ -97,7 +99,13 @@ def load_machine_learning_assets():
     scaler = joblib.load("minmax_scaler.pkl")
     encoder = joblib.load("onehot_encoder.pkl")
     feature_list = joblib.load("selected_features.pkl")
-    model = joblib.load("best_rf_model.pkl")
+    #model = joblib.load("best_rf_model.pkl")
+    model_p = "best_rf_model.pkl"
+    if not os.path.exists(model_p):
+        url = "https://drive.google.com/uc?id=1lxpl4NGFNV6edXpDmYiZPi0UwKmpTiws"
+        gdown.download(url, model_p, quiet=False)
+    model = joblib.load(model_p)
+    
         
     # If selected_features.pkl was saved as a DataFrame, extract its column names list
     if hasattr(feature_list, "columns"):
@@ -1824,7 +1832,7 @@ elif st.session_state.current_page == "About":
             <div style="display: flex; align-items: center; gap: 10px; margin-bottom: 12px; color: #4A5568;">
                 <i class="bi bi-envelope-fill" style="color: #15877B; font-size: 16px;"></i>
                 <span><a href="mailto:tan.yan.san@student.mmu.edu.my" style="color: #15877B; text-decoration: none;">tan.yan.san@student.mmu.edu.my</a></span>
-            </div>
+            </div>
             <div style="display: flex; align-items: center; gap: 10px; color: #4A5568; margin-top: 20px; padding-top: 15px; border-top: 1px solid #EEF2F6;">
                 <i class="bi bi-mortarboard-fill" style="color: #15877B; font-size: 20px;"></i>
                 <span style="font-size: 13px; font-weight: 500;">Final Year Project Predictive Models for Cognitive Decline Assessment Demo — 2026</span>
