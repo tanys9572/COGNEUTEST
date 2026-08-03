@@ -1,0 +1,30 @@
+#needed library to run
+#in vscode terminal, type: pip install -r required_library.txt
+pandas
+numpy
+
+#Machine learning & optimisation
+scikit-learn
+imbalanced-learn
+optuna
+xgboost
+lightgbm
+joblib
+
+#xai
+shap
+
+#visualisation
+matplotlib
+seaborn
+
+#system
+streamlit
+streamlit-option-menu
+plotly
+kaleido
+xhtml2pdf
+pytz
+
+#extra
+gdown
