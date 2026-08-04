@@ -710,6 +710,7 @@ if st.session_state.current_page == "Risk Assessment":
             
             for col, val in inputs.items():
                 if col in input_data.columns:
+                    input_data[col] = input_data[col].astype(object)
                     input_data.at[0, col] = val
 
             for col in input_data.columns:
