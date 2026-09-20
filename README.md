@@ -45,8 +45,9 @@ If you need the dataset to run the script, please request one from https://nacc.
     - .streamlit folder
     - logo dark.png, 
     - saved .pkl files after running phase 1 using Predictive Model Development.ipynb (imputer_value.pkl, minmax_scaler.pkl, onehot_encoder.pkl, selected_features.pkl & best_rf_model.pkl)
-      _*Note: Due to file size limitations on GitHub, large model files such as best_rf_model.pkl are not committed directly to the repository. Alternatively, you can generate all five .pkl artifacts directly from scratch by running sections 1, 2, 3, 4, 5a, and 7 inside the provided Predictive Model Development.ipynb notebook to generate them. 
-_
+      
+_*Note: Due to file size limitations on GitHub, large model files such as best_rf_model.pkl are not committed directly to the repository. Alternatively, you can generate all five .pkl artifacts directly from scratch by running sections 1, 2, 3, 4, 5a, and 7 inside the provided Predictive Model Development.ipynb notebook to generate them._
+
 2. Use command to run the system: 
 _streamlit run system.py _
 
