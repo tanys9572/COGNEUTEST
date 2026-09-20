@@ -1,5 +1,6 @@
 # COGNEUTEST
 PROJECT TITLE: PREDICTIVE MODELS FOR COGNITIVE DECLINE ASSESSMENT
+
 COGNEUTEST is a fast, transparent and affordable clinical support system designed for early screening of cognitive decline. It utilised a trained machine learning ensemble algorithm, Random Forest, to help the system to evaluate patient demographics, medical conditions, lifestyle, and influential cognitive variables to predict three cognitive statuses, which are Normal Cognition, Mild Cognitive Impairment (MCI), and Alzheimer's Disease (AD) dementia. The system incorporates Explainable AI SHapley Additive exPlanations (SHAP) to provide clinicians with features’ contribution levels behind every prediction results. 
 
 -----------------------------------------------------------------------------------------------------
