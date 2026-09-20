@@ -15,8 +15,29 @@ from xhtml2pdf import pisa #for pdf
 import base64 #for pdf
 import textwrap
 import gdown
+from cryptography.fernet import Fernet  #add encryption
 
 st.set_page_config(page_title="COGNEUTEST", layout="wide", initial_sidebar_state="expanded")
+
+#encrypt and decrypt part
+ENCRYPTION_KEY = os.environ.get("COGNEU_CIPHER_KEY", "wX4_r9Z2m1Q3v5E7t9Y1u3I5o7P9a1S3d5F7g9H1jL0=") #32 base64
+cipher = Fernet(ENCRYPTION_KEY.encode() if isinstance(ENCRYPTION_KEY, str) else ENCRYPTION_KEY)
+
+def encrypt_bytes(data_bytes: bytes) -> bytes:
+    """Encrypts raw bytes using Fernet"""
+    if data_bytes is None:
+        return None
+    return cipher.encrypt(data_bytes)
+
+def decrypt_bytes(encrypted_bytes: bytes) -> bytes:
+    """Decrypts ciphertext bytes back to original bytes."""
+    if encrypted_bytes is None:
+        return None
+    try:
+        return cipher.decrypt(encrypted_bytes)
+    except Exception:
+        return encrypted_bytes
+
 
 current_year = datetime.now().year
 
@@ -315,7 +336,8 @@ with top_col2:
     # system time calculations
     my_tz = pytz.timezone("Asia/Kuala_Lumpur")
     now_my = datetime.now(my_tz)
-    malaysia_str = now_my.strftime("%d %b %Y")
+    #malaysia_str = now_my.strftime("%d %b %Y")
+    malaysia_str = "10 Aug 2026"
 
     #html
     st.markdown(f"""
@@ -1083,7 +1105,8 @@ if st.session_state.current_page == "Risk Assessment":
             """, unsafe_allow_html=True)
             st.markdown("</br>", unsafe_allow_html=True)
 
-            time_str = now_my.strftime("%I:%M %p")
+            #time_str = now_my.strftime("%I:%M %p")
+            time_str = "10:50 PM"
 
             #convert shap to png to put on report
             try:
@@ -1416,7 +1439,8 @@ if st.session_state.current_page == "Risk Assessment":
                             ?, ?, ?, ?
                         )
                     """
-
+                    #encrypt pdf file
+                    encrypted_pdf_blob = encrypt_bytes(pdf_file)
                     record_tuple = (
                         st.session_state.current_ref_id,   # REFERENCE_ID (Primary Key)
                         patient_master_id,                 #subjectid
@@ -1447,7 +1471,7 @@ if st.session_state.current_page == "Risk Assessment":
                         float(inputs["DIABET"]) if not pd.isna(inputs["DIABET"]) else None,
                         int(float(inputs["MINTTOTS"])) if not pd.isnull(inputs["MINTTOTS"]) else None,
                         int(float(prediction_code)),               
-                        sqlite3.Binary(pdf_file),
+                        sqlite3.Binary(encrypted_pdf_blob),
                         combined_timestamp
                     )
                     
@@ -1730,6 +1754,11 @@ elif st.session_state.current_page == "Record Search":
                             st.markdown(timestamp_display)
                         with info_col3:
                             #download part
+
+                            #extract and decrypt the PDF
+                            raw_blob_bytes = row['REPORT_PDF']
+                            pdf_blob_bytes = decrypt_bytes(raw_blob_bytes) if raw_blob_bytes is not None else None
+
                             if pdf_blob_bytes is not None:
                                 st.download_button(
                                     label=":material/download: Download Diagnostic PDF Report",
