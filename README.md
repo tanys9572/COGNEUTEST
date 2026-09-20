@@ -1,8 +1,8 @@
 # COGNEUTEST
 PROJECT TITLE: PREDICTIVE MODELS FOR COGNITIVE DECLINE ASSESSMENT
+COGNEUTEST is a fast, transparent and affordable clinical support system designed for early screening of cognitive decline. It utilised a trained machine learning ensemble algorithm, Random Forest, to help the system to evaluate patient demographics, medical conditions, lifestyle, and influential cognitive variables to predict three cognitive statuses, which are Normal Cognition, Mild Cognitive Impairment (MCI), and Alzheimer's Disease (AD) dementia. The system incorporates Explainable AI SHapley Additive exPlanations (SHAP) to provide clinicians with features’ contribution levels behind every prediction results. 
 
-AUTHOR: TAN YAN SAN
-
+-----------------------------------------------------------------------------------------------------
 ## PHASE 1 Model Development
 
 SETUP INSTRUCTIONS:
@@ -11,13 +11,13 @@ To run the code on VS code, please follow these steps:
 1.Open your terminal (before that make sure have installed Python and Jupyter extension)
 
 2.Create a virtual environment using the following command: 
-python -m venv venv
+_python -m venv venv_
 
 3.Activate the virtual environment: 
-venv\Scripts\activate
+_venv\Scripts\activate_
 
 4.Install all libraries using the following command: 
-pip install -r required_library.txt
+_pip install -r required_library.txt_
 
 5.After installing all libraries, open the project folder in VS Code.
 
@@ -44,8 +44,9 @@ If you need the dataset to run the script, please request one from https://nacc.
     - .streamlit folder
     - logo dark.png, 
     - saved .pkl files after running phase 1 using Predictive Model Development.ipynb (imputer_value.pkl, minmax_scaler.pkl, onehot_encoder.pkl, selected_features.pkl & best_rf_model.pkl)
-
+      _*Note: Due to file size limitations on GitHub, large model files such as best_rf_model.pkl are not committed directly to the repository. Alternatively, you can generate all five .pkl artifacts directly from scratch by running sections 1, 2, 3, 4, 5a, and 7 inside the provided Predictive Model Development.ipynb notebook to generate them. 
+_
 2. Use command to run the system: 
-streamlit run system.py 
+_streamlit run system.py _
 
-3. The system utilises a local SQLite for patient record management. You can test the system with the cogneutest.db generated within the directory the moment you launch the system for the first time.! The interface will open up inside your default web browser.
+3. The system utilises a local SQLite for patient record management. You can test the system with the cogneutest.db generated within the directory the moment you launch the system for the first time. Upon launching the system on browser, you are presented with the Risk Assessment page. There is no need for login or registration because COGNEUTEST is designed as a direct-access clinical decision support tool.
